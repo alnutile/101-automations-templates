@@ -15,7 +15,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
     <div className="bg-[#1a1b23] rounded-lg overflow-hidden border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
       <div className="p-6">
         <div className="flex justify-between items-start">
-          <h3 className="text-xl font-semibold text-white mb-2">{template.name}</h3>
+          <h3 className="text-xl font-semibold text-white mb-2">{template.title}</h3>
           <button
             onClick={copyToClipboard}
             className="p-2 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 transition-colors duration-200"
