@@ -1,41 +1,22 @@
 export interface Template {
-  id: string;
-  name: string;
+  id: number;
+  title: string;
   description: string;
-  json: string;
-  category: string;
   tags: string[];
 }
 
 export const templates: Template[] = [
   {
-    id: '1',
-    name: 'Daily Twitter Analytics',
-    description: 'Automatically collect and analyze your Twitter metrics daily, sending a summary report to Slack.',
-    json: `{
-      "node": "Twitter",
-      "type": "analytics",
-      "config": {
-        "interval": "daily",
-        "metrics": ["impressions", "engagement", "followers"]
-      }
-    }`,
-    category: 'Social Media',
-    tags: ['twitter', 'analytics', 'slack']
+    id: 1,
+    title: "Email Notification Workflow",
+    description: "Automatically send email notifications when new data is received",
+    tags: ["email", "automation", "notifications"]
   },
   {
-    id: '2',
-    name: 'Lead Generation Workflow',
-    description: 'Capture leads from multiple sources and automatically add them to your CRM with follow-up tasks.',
-    json: `{
-      "node": "CRM",
-      "type": "lead",
-      "config": {
-        "sources": ["website", "linkedin"],
-        "actions": ["create_contact", "create_task"]
-      }
-    }`,
-    category: 'Sales',
-    tags: ['crm', 'leads', 'automation']
-  }
+    id: 2,
+    title: "Data Backup System",
+    description: "Regular automated backups of your important data",
+    tags: ["backup", "storage", "automation"]
+  },
+  // Add more templates as needed
 ];

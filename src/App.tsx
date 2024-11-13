@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { templates } from './data/templates';
 import { TemplateCard } from './components/TemplateCard';
 import { Search } from 'lucide-react';
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Filter templates based on search query
+  const filteredTemplates = templates.filter((template) => {
+    const searchTerm = searchQuery.toLowerCase();
+    return (
+      template.title.toLowerCase().includes(searchTerm) ||
+      template.description.toLowerCase().includes(searchTerm) ||
+      template.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+    );
+  });
+
   return (
     <div className="min-h-screen bg-[#13141a] text-white">
       {/* Header */}
@@ -28,6 +40,8 @@ function App() {
             type="text"
             placeholder="Search templates..."
             className="w-full bg-[#1a1b23] border border-purple-500/20 rounded-lg py-4 pl-12 pr-4 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/40"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
       </div>
@@ -35,7 +49,7 @@ function App() {
       {/* Templates Grid */}
       <main className="max-w-6xl mx-auto px-4 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {templates.map((template) => (
+          {filteredTemplates.map((template) => (
             <TemplateCard key={template.id} template={template} />
           ))}
         </div>
