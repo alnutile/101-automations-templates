@@ -9,9 +9,9 @@ export interface Template {
 export const templates: Template[] = [
   {
     id: 1,
-    title: "Webhooks Lesson 2",
+    title: "Webhooks Lesson #2",
     description: "Using webhooks to trigger automations",
-    tags: ["slack", "github", "notifications"],
+    tags: ["llm", "webhook", "http"],
     json: `{
   "nodes": [
     {
